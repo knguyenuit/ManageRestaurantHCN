@@ -16,6 +16,8 @@ public class ManageRestaurantHCN {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        huy h = new huy();
+        h.setVisible(true);
     }
     
 }
