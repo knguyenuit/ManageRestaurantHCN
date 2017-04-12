@@ -87,7 +87,7 @@ public class huy extends javax.swing.JFrame {
         pnlOrder = new javax.swing.JPanel();
         lblOrder = new javax.swing.JLabel();
         lblCurrent = new javax.swing.JLabel();
-        pnlDoiTacCurrent = new javax.swing.JPanel();
+        pnlDoiTac = new javax.swing.JPanel();
         lblDoiTac = new javax.swing.JLabel();
         lblDoiTacCurrent = new javax.swing.JLabel();
         pnlDatBan = new javax.swing.JPanel();
@@ -163,10 +163,10 @@ public class huy extends javax.swing.JFrame {
 
         pnlControl.add(pnlOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
-        pnlDoiTacCurrent.setBackground(new java.awt.Color(70, 92, 139));
-        pnlDoiTacCurrent.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlDoiTac.setBackground(new java.awt.Color(70, 92, 139));
+        pnlDoiTac.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlDoiTacCurrentMouseClicked(evt);
+                pnlDoiTacMouseClicked(evt);
             }
         });
 
@@ -175,26 +175,26 @@ public class huy extends javax.swing.JFrame {
 
         lblDoiTacCurrent.setBackground(new java.awt.Color(153, 153, 255));
 
-        javax.swing.GroupLayout pnlDoiTacCurrentLayout = new javax.swing.GroupLayout(pnlDoiTacCurrent);
-        pnlDoiTacCurrent.setLayout(pnlDoiTacCurrentLayout);
-        pnlDoiTacCurrentLayout.setHorizontalGroup(
-            pnlDoiTacCurrentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDoiTacCurrentLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlDoiTacLayout = new javax.swing.GroupLayout(pnlDoiTac);
+        pnlDoiTac.setLayout(pnlDoiTacLayout);
+        pnlDoiTacLayout.setHorizontalGroup(
+            pnlDoiTacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDoiTacLayout.createSequentialGroup()
                 .addComponent(lblDoiTacCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(lblDoiTac)
                 .addGap(57, 57, 57))
         );
-        pnlDoiTacCurrentLayout.setVerticalGroup(
-            pnlDoiTacCurrentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDoiTacCurrentLayout.createSequentialGroup()
+        pnlDoiTacLayout.setVerticalGroup(
+            pnlDoiTacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDoiTacLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(lblDoiTac)
                 .addContainerGap(30, Short.MAX_VALUE))
             .addComponent(lblDoiTacCurrent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnlControl.add(pnlDoiTacCurrent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 210, 70));
+        pnlControl.add(pnlDoiTac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 210, 70));
 
         pnlDatBan.setBackground(new java.awt.Color(70, 92, 139));
         pnlDatBan.setForeground(new java.awt.Color(255, 255, 255));
@@ -316,6 +316,12 @@ public class huy extends javax.swing.JFrame {
         lblDoiTacCurrent.setBackground(new Color(70, 92, 139));
         lblGiaoDichCurrent.setBackground(new Color(70, 92, 139));
         lblNhanVienCurrent.setBackground(new Color(70, 92, 139));
+        pnlOrder.setBackground(new Color(34, 45, 68));
+        pnlDatBan.setBackground(new Color(70, 92, 139));
+        pnlDoiTac.setBackground(new Color(70, 92, 139));
+        pnlGiaoDich.setBackground(new Color(70, 92, 139));
+        pnlNhanVien.setBackground(new Color(70, 92, 139));
+        
     }//GEN-LAST:event_pnlOrderMouseClicked
 
     private void pnlDatBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDatBanMouseClicked
@@ -328,9 +334,15 @@ public class huy extends javax.swing.JFrame {
         lblDoiTacCurrent.setBackground(new Color(70, 92, 139));
         lblGiaoDichCurrent.setBackground(new Color(70, 92, 139));
         lblNhanVienCurrent.setBackground(new Color(70, 92, 139));
+        pnlDatBan.setBackground(new Color(34, 45, 68));
+        
+        pnlDoiTac.setBackground(new Color(70, 92, 139));
+        pnlGiaoDich.setBackground(new Color(70, 92, 139));
+        pnlNhanVien.setBackground(new Color(70, 92, 139));
+        pnlOrder.setBackground(new Color(70, 92, 139));
     }//GEN-LAST:event_pnlDatBanMouseClicked
 
-    private void pnlDoiTacCurrentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDoiTacCurrentMouseClicked
+    private void pnlDoiTacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDoiTacMouseClicked
         // TODO add your handling code here:
         lblTest.setText("Doi Tac");
         lblDoiTacCurrent.setBackground(new Color(146,193,120));
@@ -339,7 +351,13 @@ public class huy extends javax.swing.JFrame {
         lblDatBanCurrent.setBackground(new Color(70, 92, 139));
         lblGiaoDichCurrent.setBackground(new Color(70, 92, 139));
         lblNhanVienCurrent.setBackground(new Color(70, 92, 139));
-    }//GEN-LAST:event_pnlDoiTacCurrentMouseClicked
+        pnlDoiTac.setBackground(new Color(34, 45, 68));
+        pnlDatBan.setBackground(new Color(70, 92, 139));
+        
+        pnlGiaoDich.setBackground(new Color(70, 92, 139));
+        pnlNhanVien.setBackground(new Color(70, 92, 139));
+        pnlOrder.setBackground(new Color(70, 92, 139));
+    }//GEN-LAST:event_pnlDoiTacMouseClicked
 
     private void pnlNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMouseClicked
         // TODO add your handling code here:
@@ -350,6 +368,12 @@ public class huy extends javax.swing.JFrame {
         lblDatBanCurrent.setBackground(new Color(70, 92, 139));
         lblGiaoDichCurrent.setBackground(new Color(70, 92, 139));
         lblDoiTacCurrent.setBackground(new Color(70, 92, 139));
+        pnlNhanVien.setBackground(new Color(34, 45, 68));
+        pnlDatBan.setBackground(new Color(70, 92, 139));
+        pnlDoiTac.setBackground(new Color(70, 92, 139));
+        pnlGiaoDich.setBackground(new Color(70, 92, 139));
+        
+        pnlOrder.setBackground(new Color(70, 92, 139));
     }//GEN-LAST:event_pnlNhanVienMouseClicked
 
     private void pnlGiaoDichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlGiaoDichMouseClicked
@@ -361,6 +385,12 @@ public class huy extends javax.swing.JFrame {
         lblDatBanCurrent.setBackground(new Color(70, 92, 139));
         lblDoiTacCurrent.setBackground(new Color(70, 92, 139));
         lblNhanVienCurrent.setBackground(new Color(70, 92, 139));
+        pnlGiaoDich.setBackground(new Color(34, 45, 68));
+        pnlDatBan.setBackground(new Color(70, 92, 139));
+        pnlDoiTac.setBackground(new Color(70, 92, 139));
+        
+        pnlNhanVien.setBackground(new Color(70, 92, 139));
+        pnlOrder.setBackground(new Color(70, 92, 139));
     }//GEN-LAST:event_pnlGiaoDichMouseClicked
 
     
@@ -412,7 +442,7 @@ public class huy extends javax.swing.JFrame {
     private javax.swing.JLabel lblTest;
     private javax.swing.JPanel pnlControl;
     private javax.swing.JPanel pnlDatBan;
-    private javax.swing.JPanel pnlDoiTacCurrent;
+    private javax.swing.JPanel pnlDoiTac;
     private javax.swing.JPanel pnlGiaoDich;
     private javax.swing.JPanel pnlNhanVien;
     private javax.swing.JPanel pnlOrder;
