@@ -12,6 +12,7 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
+import javax.swing.JLabel;
 
 /**
  *
@@ -25,6 +26,7 @@ public class MainTemplate extends javax.swing.JFrame {
     private boolean clickDouble = false;
     
     private Component[] a = new Component[6];
+    private JLabel[] current = new JLabel[6];
     
     public MainTemplate() {
         initComponents();
@@ -54,6 +56,13 @@ public class MainTemplate extends javax.swing.JFrame {
         a[3]= pnlGiaoDich;
         a[4]=pnlHangHoa;
         a[5]= pnlNhanVien;
+        
+        current[0] = lblOrderCurrent;
+        current[1] = lblDatBanCurrent;
+        current[2] = lblDoiTacCurrent;
+        current[3] = lblGiaoDichCurrent;
+        current[4] = lblHangHoaCurrent;
+        current[5] = lblNhanVienCurrent;
     }
 
     /**
@@ -71,14 +80,17 @@ public class MainTemplate extends javax.swing.JFrame {
         pnlControl = new javax.swing.JPanel();
         pnlOrder = new javax.swing.JPanel();
         lblOrder = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblIconOrder = new javax.swing.JLabel();
+        lblOrderCurrent = new javax.swing.JLabel();
         pnlDatBan = new javax.swing.JPanel();
         lblDatBan = new javax.swing.JLabel();
         lblIconDatBan = new javax.swing.JLabel();
+        lblDatBanCurrent = new javax.swing.JLabel();
         pnlDoiTac = new javax.swing.JPanel();
         lblDoiTac = new javax.swing.JLabel();
         lblIconDoiTac = new javax.swing.JLabel();
         lblIconPlusDT = new javax.swing.JLabel();
+        lblDoiTacCurrent = new javax.swing.JLabel();
         pnlDoiTacChild = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lblKhachHang = new javax.swing.JLabel();
@@ -88,6 +100,7 @@ public class MainTemplate extends javax.swing.JFrame {
         lblHangHoa = new javax.swing.JLabel();
         lblIconPlusHH = new javax.swing.JLabel();
         lblIconHangHoa = new javax.swing.JLabel();
+        lblHangHoaCurrent = new javax.swing.JLabel();
         pnlHangHoaChild = new javax.swing.JPanel();
         pnlDanhMuc = new javax.swing.JPanel();
         lblDanhMuc = new javax.swing.JLabel();
@@ -98,10 +111,12 @@ public class MainTemplate extends javax.swing.JFrame {
         pnlNhanVien = new javax.swing.JPanel();
         lblNhanVien = new javax.swing.JLabel();
         lblIconNhanVien = new javax.swing.JLabel();
+        lblNhanVienCurrent = new javax.swing.JLabel();
         pnlGiaoDich = new javax.swing.JPanel();
         lblGiaoDich = new javax.swing.JLabel();
         lblIconGiaoDich = new javax.swing.JLabel();
         lblPlusGD = new javax.swing.JLabel();
+        lblGiaoDichCurrent = new javax.swing.JLabel();
         pnlGiaoDichChild = new javax.swing.JPanel();
         pnlHoaDon = new javax.swing.JPanel();
         lblHoaDon = new javax.swing.JLabel();
@@ -157,15 +172,18 @@ public class MainTemplate extends javax.swing.JFrame {
         lblOrder.setForeground(new java.awt.Color(240, 255, 255));
         lblOrder.setText("Order");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Restaurant_50px.png"))); // NOI18N
+        lblIconOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Restaurant_50px.png"))); // NOI18N
+
+        lblOrderCurrent.setBackground(new java.awt.Color(147, 193, 120));
 
         javax.swing.GroupLayout pnlOrderLayout = new javax.swing.GroupLayout(pnlOrder);
         pnlOrder.setLayout(pnlOrderLayout);
         pnlOrderLayout.setHorizontalGroup(
             pnlOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOrderLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jLabel1)
+                .addComponent(lblOrderCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(lblIconOrder)
                 .addGap(76, 76, 76)
                 .addComponent(lblOrder)
                 .addGap(65, 65, 65))
@@ -179,8 +197,9 @@ public class MainTemplate extends javax.swing.JFrame {
                         .addComponent(lblOrder))
                     .addGroup(pnlOrderLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblIconOrder)))
                 .addContainerGap(40, Short.MAX_VALUE))
+            .addComponent(lblOrderCurrent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlControl.add(pnlOrder);
@@ -198,12 +217,15 @@ public class MainTemplate extends javax.swing.JFrame {
 
         lblIconDatBan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Restaurant Table_50px.png"))); // NOI18N
 
+        lblDatBanCurrent.setBackground(new java.awt.Color(147, 193, 120));
+
         javax.swing.GroupLayout pnlDatBanLayout = new javax.swing.GroupLayout(pnlDatBan);
         pnlDatBan.setLayout(pnlDatBanLayout);
         pnlDatBanLayout.setHorizontalGroup(
             pnlDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatBanLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addComponent(lblDatBanCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
                 .addComponent(lblIconDatBan)
                 .addGap(76, 76, 76)
                 .addComponent(lblDatBan)
@@ -220,6 +242,7 @@ public class MainTemplate extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(lblDatBan)))
                 .addContainerGap(40, Short.MAX_VALUE))
+            .addComponent(lblDatBanCurrent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlControl.add(pnlDatBan);
@@ -241,32 +264,36 @@ public class MainTemplate extends javax.swing.JFrame {
 
         lblIconPlusDT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Plus Math_40px.png"))); // NOI18N
 
+        lblDoiTacCurrent.setBackground(new java.awt.Color(147, 193, 120));
+
         javax.swing.GroupLayout pnlDoiTacLayout = new javax.swing.GroupLayout(pnlDoiTac);
         pnlDoiTac.setLayout(pnlDoiTacLayout);
         pnlDoiTacLayout.setHorizontalGroup(
             pnlDoiTacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDoiTacLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addComponent(lblDoiTacCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(lblIconDoiTac)
-                .addGap(76, 76, 76)
+                .addGap(82, 82, 82)
                 .addComponent(lblDoiTac)
-                .addGap(60, 60, 60)
+                .addGap(80, 80, 80)
                 .addComponent(lblIconPlusDT)
-                .addGap(35, 35, 35))
+                .addGap(8, 8, 8))
         );
         pnlDoiTacLayout.setVerticalGroup(
             pnlDoiTacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDoiTacLayout.createSequentialGroup()
                 .addGroup(pnlDoiTacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDoiTacLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(lblDoiTac))
-                    .addGroup(pnlDoiTacLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
+                        .addComponent(lblIconDoiTac))
+                    .addGroup(pnlDoiTacLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
                         .addGroup(pnlDoiTacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblIconPlusDT)
-                            .addComponent(lblIconDoiTac))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                            .addComponent(lblDoiTac))))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addComponent(lblDoiTacCurrent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlControl.add(pnlDoiTac);
@@ -325,6 +352,7 @@ public class MainTemplate extends javax.swing.JFrame {
         pnlControl.add(pnlDoiTacChild);
 
         pnlHangHoa.setBackground(new java.awt.Color(70, 92, 139));
+        pnlHangHoa.setPreferredSize(new java.awt.Dimension(410, 118));
         pnlHangHoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlHangHoaMouseClicked(evt);
@@ -338,32 +366,37 @@ public class MainTemplate extends javax.swing.JFrame {
 
         lblIconHangHoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Cardboard Box_50px.png"))); // NOI18N
 
+        lblHangHoaCurrent.setBackground(new java.awt.Color(147, 193, 120));
+
         javax.swing.GroupLayout pnlHangHoaLayout = new javax.swing.GroupLayout(pnlHangHoa);
         pnlHangHoa.setLayout(pnlHangHoaLayout);
         pnlHangHoaLayout.setHorizontalGroup(
             pnlHangHoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHangHoaLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addComponent(lblHangHoaCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
                 .addComponent(lblIconHangHoa)
                 .addGap(76, 76, 76)
                 .addComponent(lblHangHoa)
-                .addGap(30, 30, 30)
+                .addGap(53, 53, 53)
                 .addComponent(lblIconPlusHH, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(53, 53, 53))
         );
         pnlHangHoaLayout.setVerticalGroup(
             pnlHangHoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblHangHoaCurrent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlHangHoaLayout.createSequentialGroup()
                 .addGroup(pnlHangHoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHangHoaLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(pnlHangHoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblIconHangHoa)
-                            .addComponent(lblIconPlusHH)))
+                        .addComponent(lblIconHangHoa))
                     .addGroup(pnlHangHoaLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(lblHangHoa)))
-                .addGap(40, 40, 40))
+                        .addComponent(lblHangHoa))
+                    .addGroup(pnlHangHoaLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(lblIconPlusHH)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pnlControl.add(pnlHangHoa);
@@ -459,14 +492,17 @@ public class MainTemplate extends javax.swing.JFrame {
 
         lblIconNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Restaurant Pickup_50px.png"))); // NOI18N
 
+        lblNhanVienCurrent.setBackground(new java.awt.Color(147, 193, 120));
+
         javax.swing.GroupLayout pnlNhanVienLayout = new javax.swing.GroupLayout(pnlNhanVien);
         pnlNhanVien.setLayout(pnlNhanVienLayout);
         pnlNhanVienLayout.setHorizontalGroup(
             pnlNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNhanVienLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addComponent(lblNhanVienCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
                 .addComponent(lblIconNhanVien)
-                .addGap(76, 76, 76)
+                .addGap(74, 74, 74)
                 .addComponent(lblNhanVien)
                 .addGap(106, 106, 106))
         );
@@ -481,6 +517,7 @@ public class MainTemplate extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(lblNhanVien)))
                 .addGap(40, 40, 40))
+            .addComponent(lblNhanVienCurrent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlControl.add(pnlNhanVien);
@@ -499,18 +536,22 @@ public class MainTemplate extends javax.swing.JFrame {
 
         lblPlusGD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Plus Math_40px.png"))); // NOI18N
 
+        lblGiaoDichCurrent.setBackground(new java.awt.Color(147, 193, 120));
+
         javax.swing.GroupLayout pnlGiaoDichLayout = new javax.swing.GroupLayout(pnlGiaoDich);
         pnlGiaoDich.setLayout(pnlGiaoDichLayout);
         pnlGiaoDichLayout.setHorizontalGroup(
             pnlGiaoDichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGiaoDichLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addContainerGap()
+                .addComponent(lblGiaoDichCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
                 .addComponent(lblIconGiaoDich)
                 .addGap(72, 72, 72)
                 .addComponent(lblGiaoDich)
-                .addGap(40, 40, 40)
+                .addGap(58, 58, 58)
                 .addComponent(lblPlusGD)
-                .addGap(46, 46, 46))
+                .addGap(28, 28, 28))
         );
         pnlGiaoDichLayout.setVerticalGroup(
             pnlGiaoDichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,6 +566,7 @@ public class MainTemplate extends javax.swing.JFrame {
                             .addComponent(lblPlusGD)
                             .addComponent(lblGiaoDich))))
                 .addContainerGap(37, Short.MAX_VALUE))
+            .addComponent(lblGiaoDichCurrent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlControl.add(pnlGiaoDich);
@@ -590,35 +632,35 @@ public class MainTemplate extends javax.swing.JFrame {
 
     private void pnlDoiTacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDoiTacMouseClicked
         // TODO add your handling code here:
-        setBackgroupColor(a, pnlDoiTac);
+        setBackgroupColor(a,current, pnlDoiTac, lblDoiTacCurrent);
         setClicked(pnlDoiTacChild, clickDouble);
     }//GEN-LAST:event_pnlDoiTacMouseClicked
 
     private void pnlHangHoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlHangHoaMouseClicked
         // TODO add your handling code here:
-        setBackgroupColor(a, pnlHangHoa);
+        setBackgroupColor(a,current, pnlHangHoa, lblHangHoaCurrent);
         setClicked(pnlHangHoaChild, clickDouble);
     }//GEN-LAST:event_pnlHangHoaMouseClicked
 
     private void pnlGiaoDichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlGiaoDichMouseClicked
         // TODO add your handling code here:
-        setBackgroupColor(a, pnlGiaoDich);
+        setBackgroupColor(a,current, pnlGiaoDich, lblGiaoDichCurrent);
          setClicked(pnlGiaoDichChild, clickDouble);
     }//GEN-LAST:event_pnlGiaoDichMouseClicked
 
     private void pnlOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlOrderMouseClicked
         // TODO add your handling code here:
-        setBackgroupColor(a, pnlOrder);
+        setBackgroupColor(a,current, pnlOrder, lblOrderCurrent);
     }//GEN-LAST:event_pnlOrderMouseClicked
 
     private void pnlDatBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDatBanMouseClicked
         // TODO add your handling code here:
-        setBackgroupColor(a, pnlDatBan);
+        setBackgroupColor(a,current, pnlDatBan, lblDatBanCurrent);
     }//GEN-LAST:event_pnlDatBanMouseClicked
 
     private void pnlNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMouseClicked
         // TODO add your handling code here:
-        setBackgroupColor(a, pnlNhanVien);
+        setBackgroupColor(a,current, pnlNhanVien, lblNhanVienCurrent);
     }//GEN-LAST:event_pnlNhanVienMouseClicked
 
     private void viSibleFalse ()
@@ -675,17 +717,32 @@ public class MainTemplate extends javax.swing.JFrame {
         }   
     }
     
-    private void setBackgroupColor (Component[] s, Component c)
+    private void setBackgroupColor (Component[] s, JLabel[] current, Component c, JLabel d)
     {
         for(Component i : s)
         {
             if(i == c)
             {
                 c.setBackground(new Color(34, 45, 68));
+                
             }
             else
             {
                 i.setBackground(new Color(70, 92, 139));
+            }
+        }
+        
+        for (JLabel y : current)
+        {
+            if(y == d)
+            {
+                d.setBackground(new Color(147,193,120));
+                d.setOpaque(true);
+            }
+            else
+            {
+                y.setBackground(new Color(70, 92, 139));
+                y.setOpaque(true);
             }
         }
     }
@@ -725,21 +782,25 @@ public class MainTemplate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblDanhMuc;
     private javax.swing.JLabel lblDatBan;
+    private javax.swing.JLabel lblDatBanCurrent;
     private javax.swing.JLabel lblDoiTac;
+    private javax.swing.JLabel lblDoiTacCurrent;
     private javax.swing.JLabel lblGiaoDich;
+    private javax.swing.JLabel lblGiaoDichCurrent;
     private javax.swing.JLabel lblHangHoa;
+    private javax.swing.JLabel lblHangHoaCurrent;
     private javax.swing.JLabel lblHoaDon;
     private javax.swing.JLabel lblIconDatBan;
     private javax.swing.JLabel lblIconDoiTac;
     private javax.swing.JLabel lblIconGiaoDich;
     private javax.swing.JLabel lblIconHangHoa;
     private javax.swing.JLabel lblIconNhanVien;
+    private javax.swing.JLabel lblIconOrder;
     private javax.swing.JLabel lblIconPlusDT;
     private javax.swing.JLabel lblIconPlusHH;
     private javax.swing.JLabel lblKhachHang;
@@ -747,8 +808,10 @@ public class MainTemplate extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNhaCungCap;
     private javax.swing.JLabel lblNhanVien;
+    private javax.swing.JLabel lblNhanVienCurrent;
     private javax.swing.JLabel lblNhapHang;
     private javax.swing.JLabel lblOrder;
+    private javax.swing.JLabel lblOrderCurrent;
     private javax.swing.JLabel lblPlusGD;
     private javax.swing.JLabel lblThietLapGia;
     private javax.swing.JLabel lblUser;
