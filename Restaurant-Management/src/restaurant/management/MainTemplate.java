@@ -5,15 +5,22 @@
  */
 package restaurant.management;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 /**
  *
@@ -30,12 +37,18 @@ public class MainTemplate extends javax.swing.JFrame {
     private JLabel[] current = new JLabel[7];
     private JPanel[] panelChild = new JPanel[4];
     
+    private JPanel[] p = new JPanel[30];
+    private JLabel table ;
+    private JLabel ten;
+    
+    private JPanel pnlTables = new JPanel(new FlowLayout());
+    private JScrollPane scroll = new JScrollPane(pnlTables, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
     public MainTemplate() {
         initComponents();
         
-        
-        
         viSibleFalse();
+        
+       
 
         setStyleFont(lblLogo, 42);
         setStyleFont(lblOrder, 25);
@@ -81,6 +94,10 @@ public class MainTemplate extends javax.swing.JFrame {
         panelChild[1] = pnlGiaoDichChild;
         panelChild[2] = pnlHangHoaChild;
         panelChild[3] = pnlBaoCaoChild;
+        
+        SoDoBan();
+        //pnlSoDo.setVisible(false);
+        
     }
 
     /**
@@ -93,9 +110,11 @@ public class MainTemplate extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblLogo = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
         pnlControl = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         pnlOrder = new javax.swing.JPanel();
         lblOrder = new javax.swing.JLabel();
         lblIconOrder = new javax.swing.JLabel();
@@ -158,15 +177,14 @@ public class MainTemplate extends javax.swing.JFrame {
         lblNhanVienBC = new javax.swing.JLabel();
         pnlTaiChinhBC = new javax.swing.JPanel();
         lblTaiChinhBC = new javax.swing.JLabel();
+        pnlContent = new javax.swing.JPanel();
+        pnlSoDo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(147, 193, 120));
         jPanel1.setForeground(new java.awt.Color(240, 255, 255));
-
-        lblLogo.setForeground(new java.awt.Color(240, 255, 255));
-        lblLogo.setText("Rectangle");
 
         lblUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Circled User Male_50px.png"))); // NOI18N
 
@@ -175,9 +193,7 @@ public class MainTemplate extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(lblLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1623, Short.MAX_VALUE)
+                .addContainerGap(1534, Short.MAX_VALUE)
                 .addComponent(lblUser)
                 .addGap(26, 26, 26))
         );
@@ -185,17 +201,43 @@ public class MainTemplate extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUser)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(lblLogo)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(lblUser)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1850, 100));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 1610, 130));
 
         pnlControl.setBackground(new java.awt.Color(70, 92, 139));
+
+        jPanel2.setBackground(new java.awt.Color(70, 92, 139));
+
+        lblLogo.setForeground(new java.awt.Color(240, 255, 255));
+        lblLogo.setText("Rectangle");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(lblLogo)))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(lblLogo)
+                .addGap(33, 33, 33)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pnlControl.add(jPanel2);
 
         pnlOrder.setBackground(new java.awt.Color(70, 92, 139));
         pnlOrder.setPreferredSize(new java.awt.Dimension(410, 118));
@@ -862,7 +904,15 @@ public class MainTemplate extends javax.swing.JFrame {
 
         pnlControl.add(pnlBaoCaoChild);
 
-        getContentPane().add(pnlControl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 420, 2450));
+        getContentPane().add(pnlControl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 2550));
+
+        pnlContent.setLayout(new java.awt.CardLayout());
+
+        pnlSoDo.setBackground(new java.awt.Color(223, 220, 227));
+        pnlSoDo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlContent.add(pnlSoDo, "card2");
+
+        getContentPane().add(pnlContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 1610, 2450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -883,12 +933,16 @@ public class MainTemplate extends javax.swing.JFrame {
         // TODO add your handling code here:
         setBackgroupColor(a,current, pnlGiaoDich, lblGiaoDichCurrent);
         setClicked(pnlGiaoDichChild, panelChild);
+        pnlTables.removeAll();
     }//GEN-LAST:event_pnlGiaoDichMouseClicked
 
     private void pnlOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlOrderMouseClicked
         // TODO add your handling code here:
+        
         setBackgroupColor(a,current, pnlOrder, lblOrderCurrent);
         setClicked(null, panelChild);
+        System.out.println("Click order");
+        SoDoBan();
     }//GEN-LAST:event_pnlOrderMouseClicked
 
     private void pnlDatBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDatBanMouseClicked
@@ -915,7 +969,8 @@ public class MainTemplate extends javax.swing.JFrame {
         pnlHangHoaChild.setVisible(false);
         pnlGiaoDichChild.setVisible(false);
         pnlBaoCaoChild.setVisible(false);
-        
+        pnlSoDo.setVisible(false);
+//        System.out.println(pnlSoDo.getVisibleRect().toString());
     }
     
     private void setClicked(JPanel c, JPanel[] panelChild )
@@ -939,7 +994,6 @@ public class MainTemplate extends javax.swing.JFrame {
         try {
         //create the font to use. Specify the size!
         Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("bariol_regular-webfont.ttf")).deriveFont(f);
-        System.out.println(customFont.getFontName());
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         //register the font
         ge.registerFont(customFont);
@@ -982,6 +1036,54 @@ public class MainTemplate extends javax.swing.JFrame {
             }
         }
     }
+    
+    public void SoDoBan()
+    {
+        
+        //pnlSoDo.setVisible(true);
+        pnlTables.setPreferredSize(new Dimension(1600,1000));
+        pnlTables.setVisible(true);
+        
+        
+        pnlSoDo.add(scroll, new AbsoluteConstraints(0, 300, 1600, 1000));
+        
+        
+        
+        ImageIcon image =new ImageIcon(getClass().getResource("/asset/Restaurant Table_100px.png"));
+        
+        for(int i =0; i < 30 ; i++){
+            String name = "Ban " + i;
+            
+            p[i] = new JPanel(new BorderLayout());
+            
+            table = new JLabel(image);
+            ten = new JLabel(name);
+            setStyleFont(ten, 27);
+            
+            p[i].setVisible(true);
+            p[i].setPreferredSize(new Dimension(200,200));
+            p[i].setBackground(Color.yellow);
+            
+            
+            table.setSize(200,90);
+            table.setHorizontalAlignment(JLabel.CENTER);
+            table.setVerticalAlignment(JLabel.CENTER);
+            table.setVisible(true);
+            p[i].add(table,BorderLayout.CENTER);
+            
+            
+            
+            
+            ten.setHorizontalAlignment(JLabel.CENTER);
+            ten.setVerticalAlignment(JLabel.CENTER);
+            p[i].add(ten, BorderLayout.CENTER);
+
+            
+            
+            pnlTables.add(p[i]);
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -1019,6 +1121,8 @@ public class MainTemplate extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblBaoCao;
     private javax.swing.JLabel lblBaoCaoCurrent;
     private javax.swing.JLabel lblCuoiNgayBC;
@@ -1061,6 +1165,7 @@ public class MainTemplate extends javax.swing.JFrame {
     private javax.swing.JLabel lblUser;
     private javax.swing.JPanel pnlBaoCao;
     private javax.swing.JPanel pnlBaoCaoChild;
+    private javax.swing.JPanel pnlContent;
     private javax.swing.JPanel pnlControl;
     private javax.swing.JPanel pnlCuoiNgayBC;
     private javax.swing.JPanel pnlDanhMuc;
@@ -1082,6 +1187,7 @@ public class MainTemplate extends javax.swing.JFrame {
     private javax.swing.JPanel pnlNhanVienBC;
     private javax.swing.JPanel pnlNhapHang;
     private javax.swing.JPanel pnlOrder;
+    private javax.swing.JPanel pnlSoDo;
     private javax.swing.JPanel pnlTaiChinhBC;
     private javax.swing.JPanel pnlThietLapGia;
     // End of variables declaration//GEN-END:variables
