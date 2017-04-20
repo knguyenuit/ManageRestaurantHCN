@@ -6,6 +6,7 @@
 package restaurant.management;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -13,6 +14,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.ImageIcon;
@@ -31,18 +34,28 @@ public class MainTemplate extends javax.swing.JFrame {
     /**
      * Creates new form MainTemplate
      */
+    public static int numOfTable = 30;
+    
     private boolean clickDouble = false;
     
     private Component[] a = new Component[7];
     private JLabel[] current = new JLabel[7];
     private JPanel[] panelChild = new JPanel[4];
     
-    private JPanel[] p = new JPanel[30];
+    private JPanel[] p = new JPanel[numOfTable];
     private JLabel table ;
     private JLabel ten;
     
     private JPanel pnlTables = new JPanel(new FlowLayout());
     private JScrollPane scroll = new JScrollPane(pnlTables, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+    
+    //Man hinh mon an 
+    private String[] Url = new String[3];
+    private String[] Name = new String[3];
+    private String[] price = new String[3];
+    private Food[] food = new Food[3];
+    
+    
     public MainTemplate() {
         initComponents();
         
@@ -96,8 +109,9 @@ public class MainTemplate extends javax.swing.JFrame {
         panelChild[3] = pnlBaoCaoChild;
         
         SoDoBan();
-        //pnlSoDo.setVisible(false);
         
+        //pnlSoDo.setVisible(false);
+        //pnlKhachHangContent.setVisible(true);
     }
 
     /**
@@ -179,6 +193,15 @@ public class MainTemplate extends javax.swing.JFrame {
         lblTaiChinhBC = new javax.swing.JLabel();
         pnlContent = new javax.swing.JPanel();
         pnlSoDo = new javax.swing.JPanel();
+        pnlDanhMucContent = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        pnlKhachHangContent = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        pnlOrderContent = new javax.swing.JPanel();
+        pnlMonAn = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -904,15 +927,61 @@ public class MainTemplate extends javax.swing.JFrame {
 
         pnlControl.add(pnlBaoCaoChild);
 
-        getContentPane().add(pnlControl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 2550));
+        getContentPane().add(pnlControl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 2560));
 
         pnlContent.setLayout(new java.awt.CardLayout());
 
         pnlSoDo.setBackground(new java.awt.Color(223, 220, 227));
         pnlSoDo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        pnlContent.add(pnlSoDo, "card2");
+        pnlContent.add(pnlSoDo, "panel1");
 
-        getContentPane().add(pnlContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 1610, 2450));
+        pnlDanhMucContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("Panel Danh muc");
+        pnlDanhMucContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
+
+        pnlContent.add(pnlDanhMucContent, "panel2");
+
+        pnlKhachHangContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"KH001", "A", "Kim Cuong",  new Integer(90),  new Long(9000000)},
+                {"KH002", "B", "Vang",  new Integer(1229),  new Long(130000)},
+                {"KH003", "C", "Bac",  new Integer(98),  new Long(3000000)},
+                {"KH004", "D", "Bac",  new Integer(1213),  new Long(200000)},
+                {"KH005", "E", "Thach Dau",  new Integer(123),  new Long(500000)}
+            },
+            new String [] {
+                "Ma Khach Hang", "Ten Khach Hang", "Loai Khach Hang", "Dien Thoai", "Tong ban"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        pnlKhachHangContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 1070, 110));
+
+        jLabel1.setText("Panel Khach Hang");
+        pnlKhachHangContent.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 560, 90));
+
+        pnlContent.add(pnlKhachHangContent, "panel3");
+
+        pnlOrderContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlOrderContent.add(pnlMonAn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 950, 810));
+
+        jLabel3.setText("order content");
+        pnlOrderContent.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 170, -1, -1));
+
+        pnlContent.add(pnlOrderContent, "panel4");
+
+        getContentPane().add(pnlContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 1610, 2430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -933,7 +1002,7 @@ public class MainTemplate extends javax.swing.JFrame {
         // TODO add your handling code here:
         setBackgroupColor(a,current, pnlGiaoDich, lblGiaoDichCurrent);
         setClicked(pnlGiaoDichChild, panelChild);
-        pnlTables.removeAll();
+        
     }//GEN-LAST:event_pnlGiaoDichMouseClicked
 
     private void pnlOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlOrderMouseClicked
@@ -941,14 +1010,15 @@ public class MainTemplate extends javax.swing.JFrame {
         
         setBackgroupColor(a,current, pnlOrder, lblOrderCurrent);
         setClicked(null, panelChild);
-        System.out.println("Click order");
-        SoDoBan();
+        
+        
     }//GEN-LAST:event_pnlOrderMouseClicked
 
     private void pnlDatBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDatBanMouseClicked
         // TODO add your handling code here:
         setBackgroupColor(a,current, pnlDatBan, lblDatBanCurrent);
         setClicked(null, panelChild);
+        
     }//GEN-LAST:event_pnlDatBanMouseClicked
 
     private void pnlNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMouseClicked
@@ -969,7 +1039,8 @@ public class MainTemplate extends javax.swing.JFrame {
         pnlHangHoaChild.setVisible(false);
         pnlGiaoDichChild.setVisible(false);
         pnlBaoCaoChild.setVisible(false);
-        pnlSoDo.setVisible(false);
+        //pnlSoDo.setVisible(false);
+        //pnlDanhMucContent.setVisible(false);
 //        System.out.println(pnlSoDo.getVisibleRect().toString());
     }
     
@@ -1051,16 +1122,16 @@ public class MainTemplate extends javax.swing.JFrame {
         
         ImageIcon image =new ImageIcon(getClass().getResource("/asset/Restaurant Table_100px.png"));
         
-        for(int i =0; i < 30 ; i++){
+        for(int i =0; i < numOfTable ; i++){
             String name = "Ban " + i;
             
             p[i] = new JPanel(new BorderLayout());
-            
+            p[i].setName(""+i);
             table = new JLabel(image);
             ten = new JLabel(name);
             setStyleFont(ten, 27);
             
-            p[i].setVisible(true);
+            //p[i].setVisible(true);
             p[i].setPreferredSize(new Dimension(200,200));
             p[i].setBackground(Color.yellow);
             
@@ -1077,12 +1148,49 @@ public class MainTemplate extends javax.swing.JFrame {
             ten.setHorizontalAlignment(JLabel.CENTER);
             ten.setVerticalAlignment(JLabel.CENTER);
             p[i].add(ten, BorderLayout.CENTER);
-
+            
+            p[i].addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e){
+                       JPanel j = (JPanel)e.getSource();
+                       System.out.println(j.getName());
+                       Foods();
+                        showPanel("panel4");
+                   }
+            });
             
             
             pnlTables.add(p[i]);
+            
+            
         }
         
+    }
+    
+    public void Foods ()
+    {
+        System.out.println("Man hinh food");
+        Url[0] = "/image/ca-lang-kho.jpg";
+        Url[1] = "/image/ca-nuc-kho-cay-.jpg";
+        
+        Name[0] = "Ca lang kho";
+        Name[1] = "Ca nuc kho cay ";
+        
+        price[0] = "150000";
+        price[1] = "300000";
+
+        for (int i = 0; i< 2 ; i ++)
+        {
+            food[i] = new Food(Url[i], Name[i], price[i]);
+            pnlMonAn.add(food[i]);
+            
+        }
+    }
+    
+    public void showPanel (String panel)
+    {
+        CardLayout layout = (CardLayout) pnlContent.getLayout();
+        layout.show(pnlContent, panel);
     }
     /**
      * @param args the command line arguments
@@ -1120,9 +1228,14 @@ public class MainTemplate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBaoCao;
     private javax.swing.JLabel lblBaoCaoCurrent;
     private javax.swing.JLabel lblCuoiNgayBC;
@@ -1169,6 +1282,7 @@ public class MainTemplate extends javax.swing.JFrame {
     private javax.swing.JPanel pnlControl;
     private javax.swing.JPanel pnlCuoiNgayBC;
     private javax.swing.JPanel pnlDanhMuc;
+    private javax.swing.JPanel pnlDanhMucContent;
     private javax.swing.JPanel pnlDatBan;
     private javax.swing.JPanel pnlDoiTac;
     private javax.swing.JPanel pnlDoiTacChild;
@@ -1180,13 +1294,16 @@ public class MainTemplate extends javax.swing.JFrame {
     private javax.swing.JPanel pnlHoaDon;
     private javax.swing.JPanel pnlKhachHang;
     private javax.swing.JPanel pnlKhachHangBC;
+    private javax.swing.JPanel pnlKhachHangContent;
     private javax.swing.JPanel pnlKiemKho;
+    private javax.swing.JPanel pnlMonAn;
     private javax.swing.JPanel pnlNCC;
     private javax.swing.JPanel pnlNCCBC;
     private javax.swing.JPanel pnlNhanVien;
     private javax.swing.JPanel pnlNhanVienBC;
     private javax.swing.JPanel pnlNhapHang;
     private javax.swing.JPanel pnlOrder;
+    private javax.swing.JPanel pnlOrderContent;
     private javax.swing.JPanel pnlSoDo;
     private javax.swing.JPanel pnlTaiChinhBC;
     private javax.swing.JPanel pnlThietLapGia;
