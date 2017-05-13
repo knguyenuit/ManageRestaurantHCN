@@ -16,8 +16,10 @@ public class RestaurantManagement {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MainTemplate main = new MainTemplate();
-        main.setVisible(true);
+//        MainTemplate main = new MainTemplate();
+//        main.setVisible(true);
+          Login login = new Login();
+          login.setVisible(true);
     }
     
 }
